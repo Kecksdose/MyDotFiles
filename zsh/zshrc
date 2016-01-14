@@ -1,0 +1,52 @@
+#
+# Executes commands at the start of an insteractive session.
+#
+# Author: Timon Schmelzer <timon.schmelzer@tu-dortmund.de>
+# Date: 05.01.2016
+#
+
+# Source Prezto:
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] then
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize you needs here (copied from bash_profile):
+
+# Set Default Editor
+export EDITOR=/usr/local/bin/sublime
+
+# Set blocksize (size of files) for e.g. df command
+export BLOCKSIZE=1M
+
+# -----------------------------------------
+# 2.    IMPROVE TERMINAL USAGE
+# -----------------------------------------
+
+# Basics
+alias cp='cp -iv'                       # Ask when overriding / verbose mode
+alias mv='mv -iv'                       # Ask when overriding / verbose mode
+alias mkdir='mkdir -pv'                 # Create intermediate folders / verbose mode
+alias ll='ls -FGlAhp'                   # Improved symbolic links / colorized output / list / show dotfile, but not . and .. / human readable / add slash to folders
+
+# Change directories
+alias cd..='cd ../'                     # Go back 1 directory level
+alias ..='cd ../'                       # Go back 1 directory level
+alias ...='cd ../../'                   # Go back 2 directory levels
+alias .3='cd ../../../'                 # Go back 3 directory levels
+alias .4='cd ../../../../'              # Go back 4 directory levels
+alias .5='cd ../../../../../'           # Go back 5 directory levels
+alias .6='cd ../../../../../../'        # Go back 6 directory levels
+
+# Useful shortcuts
+alias path='echo -e ${PATH//:/\\n}'
+
+# Useful combination of executables
+cd () { builtin cd "$@" && ll; }           # Call `ll` after using `cd` automatically (only when changing the directory was successfully)
+mcd () { mkdir "$1" && cd "$1"; }          # Create directory and directly `cp` to it
+
+# Show/hide hidden files in Finder
+alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Set Anaconda Path
+export PATH=/Users/tschmelzer/anaconda/bin:$PATH
