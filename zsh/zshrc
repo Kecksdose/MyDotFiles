@@ -39,6 +39,7 @@ alias .6='cd ../../../../../../'        # Go back 6 directory levels
 
 # Useful shortcuts
 alias path='echo -e ${PATH//:/\\n}'
+alias sizes='du -sch * | gsort -rh'
 
 # Useful combination of executables
 cd () { builtin cd "$@" && ll; }           # Call `ll` after using `cd` automatically (only when changing the directory was successfully)
@@ -49,7 +50,10 @@ alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # Set Anaconda Path
-export PATH=/Users/tschmelzer/anaconda/bin:$PATH
+# export PATH=/Users/tschmelzer/anaconda/bin:$PATH
+
+# For ROOT
+pushd $(brew --prefix root6) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
 
 # Keypad
 # 0 . Enter
