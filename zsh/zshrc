@@ -27,7 +27,7 @@ alias cp='cp -iv'                       # Ask when overriding / verbose mode
 alias mv='mv -iv'                       # Ask when overriding / verbose mode
 alias mkdir='mkdir -pv'                 # Create intermediate folders / verbose mode
 alias ll='ls -FGlAhp'                   # Improved symbolic links / colorized output / list / show dotfile, but not . and .. / human readable / add slash to folders
-alias quiver='open /Users/tschmelzer/Downloads/Quiver.app'
+alias quiver='open /Applications/Quiver.app'
 
 # Change directories
 alias cd..='cd ../'                     # Go back 1 directory level
@@ -43,7 +43,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias sizes='du -sch * | gsort -rh'
 
 # Useful combination of executables
-cd () { builtin cd "$@" && ll; }           # Call `ll` after using `cd` automatically (only when changing the directory was successfully)
+# cd () { builtin cd "$@" && ll; }           # Call `ll` after using `cd` automatically (only when changing the directory was successfully)
 mcd () { mkdir "$1" && cd "$1"; }          # Create directory and directly `cp` to it
 
 # Show/hide hidden files in Finder
@@ -51,6 +51,8 @@ alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # Keypad
+# beginning / ending of command
+bindkey -e
 # 0 . Enter
 bindkey -s "^[Op" "0"
 bindkey -s "^[On" "."
@@ -74,6 +76,7 @@ bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 bindkey -s "^[OX" "="
 
+
 # -----------------------------------------
 # 3.    MODIFY PATHS
 # -----------------------------------------
@@ -85,4 +88,4 @@ pushd $(brew --prefix root6) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
 export PATH="$PATH:$HOME/bin"
 
 # For Anaconda
-export PATH="/Users/tschmelzer/anaconda3/bin:$PATH"
+# export PATH="/Users/tschmelzer/anaconda3/bin:$PATH"
