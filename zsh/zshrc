@@ -26,7 +26,7 @@ export BLOCKSIZE=1M
 alias cp='cp -iv'                       # Ask when overriding / verbose mode
 alias mv='mv -iv'                       # Ask when overriding / verbose mode
 alias mkdir='mkdir -pv'                 # Create intermediate folders / verbose mode
-alias ll='ls -FGlAhp'                   # Improved symbolic links / colorized output / list / show dotfile, but not . and .. / human readable / add slash to folders
+alias ll='ls -GlAhp'                    # Colorized output / list / show dotfile, but not . and .. / human readable / add slash to folders
 alias quiver='open /Applications/Quiver.app'
 
 # Change directories
@@ -41,10 +41,12 @@ alias .6='cd ../../../../../../'        # Go back 6 directory levels
 # Useful shortcuts
 alias path='echo -e ${PATH//:/\\n}'
 alias sizes='du -sch * | gsort -rh'
+alias flask='export PATH="/Users/tschmelzer/anaconda3/bin:$PATH" && source activate flask'
+alias monitor_cpu='while true; do /Users/tschmelzer/cpu_monitoring/monitorer.sh; sleep 1; done'
 
 # Useful combination of executables
 # cd () { builtin cd "$@" && ll; }           # Call `ll` after using `cd` automatically (only when changing the directory was successfully)
-mcd () { mkdir "$1" && cd "$1"; }          # Create directory and directly `cp` to it
+mcd () { mkdir "$1" && cd "$1"; }          # Create directory and directly `cd` to it
 
 # Show/hide hidden files in Finder
 alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
@@ -89,3 +91,4 @@ export PATH="$PATH:$HOME/bin"
 
 # For Anaconda
 # export PATH="/Users/tschmelzer/anaconda3/bin:$PATH"
+alias safari=/Applications/Safari.app/Contents/MacOS/Safari
