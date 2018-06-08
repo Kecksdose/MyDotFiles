@@ -41,7 +41,7 @@ alias .6='cd ../../../../../../'        # Go back 6 directory levels
 # Useful shortcuts
 alias path='echo -e ${PATH//:/\\n}'
 alias sizes='du -sch * | gsort -rh'
-alias flask='export PATH="/Users/tschmelzer/anaconda3/bin:$PATH" && source activate flask'
+#alias flask='export PATH="/Users/tschmelzer/anaconda3/bin:$PATH" && source activate flask'
 alias monitor_cpu='while true; do /Users/tschmelzer/cpu_monitoring/monitorer.sh; sleep 1; done'
 
 # Useful combination of executables
@@ -51,6 +51,9 @@ mcd () { mkdir "$1" && cd "$1"; }          # Create directory and directly `cd` 
 # Show/hide hidden files in Finder
 alias showdotfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Mount aliases for Mac
+alias mount_lxplus="sshfs lxplus:/afs/cern.ch/user/t/tschmelz/ ~/mount_lxplus -o auto_cache,reconnect,volname=mount_lxplus,no_readahead,noappledouble,nolocalcaches"
 
 # Keypad
 # beginning / ending of command
@@ -83,8 +86,6 @@ bindkey -s "^[OX" "="
 # 3.    MODIFY PATHS
 # -----------------------------------------
 
-# For ROOT
-pushd $(brew --prefix root6) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
 
 # For Bazel
 export PATH="$PATH:$HOME/bin"
@@ -92,3 +93,11 @@ export PATH="$PATH:$HOME/bin"
 # For Anaconda
 # export PATH="/Users/tschmelzer/anaconda3/bin:$PATH"
 alias safari=/Applications/Safari.app/Contents/MacOS/Safari
+
+# For ssh keys
+ssh-add -A &> /dev/null;
+
+alias wasnlos='ps aux | grep ssh'
+alias set_conda="export PATH=/Users/tschmelzer/miniconda3/bin:/usr/local/bin:/usr/local/sbin:/usr/local/zsh:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Users/tschmelzer/bin"
+alias set_p8="set_conda && source activate point8"
+alias set_coffee="set_conda && source activate coffee"

@@ -1,2 +1,4 @@
-" Copy stuff from vim to terminal
-set clipboard=unnamed
+set ruler
+set number
+syntax on
+colo desert
